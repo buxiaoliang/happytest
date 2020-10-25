@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="${userName}"></p>
+
+<ul th:each="c, State : ${serviceList}">
+    <li th:text="${c.name}"></li>
+    <form  th:attr="action=@{/subscribe}" method="post">
+　　<fieldset>
+    　 <input type="hidden" name="userId" th:value="${userId}"/>
+    　 <input type="hidden" name="serviceId" th:value="${c.id}"/>
+　　　　<input type="submit" value="Subscribe me!"/>
+　　</fieldset>
+    </form>
+</ul>
+</body>
+</html>

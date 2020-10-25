@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<ul th:each="c, State : ${userList}">
+    <li th:text="${c.name}">
+        <ul th:each="s : ${c.services}">
+            <li th:text="${s.name}"></li>
+        </ul>
+    </li>
+    <a th:href="@{/addCustomerService(userId=${c.id},userName=${c.name})}">Subscribe Services</a>
+    <a th:href="@{/removeCustomerService(userId=${c.id},userName=${c.name})}">UnSubscribe Services</a>
+</ul>
+</body>
+</html>
